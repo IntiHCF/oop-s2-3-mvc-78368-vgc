@@ -1,0 +1,17 @@
+﻿@model AssignmentResult
+
+<h2>Delete Result</h2>
+
+<h4>Are you sure you want to delete this result?</h4>
+
+<div>
+    <p><strong>Student:</strong> @Model.StudentProfile?.Name</p>
+    <p><strong>Assignment:</strong> @Model.Assignment?.Title</p>
+    <p><strong>Score:</strong> @Model.Score</p>
+</div>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

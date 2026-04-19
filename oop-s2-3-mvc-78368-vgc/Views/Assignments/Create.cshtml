@@ -1,0 +1,17 @@
+﻿@model Assignment
+
+<h2>Create Assignment</h2>
+
+<form asp-action="Create" method="post">
+
+    <input asp-for="Title" class="form-control" />
+
+    <select asp-for="CourseId"
+            asp-items="@(new SelectList(ViewBag.Courses, "Id", "Name"))"
+            class="form-control"></select>
+
+    <input asp-for="MaxScore" class="form-control" />
+    <input asp-for="DueDate" type="date" class="form-control" />
+
+    <button class="btn btn-success">Save</button>
+</form>

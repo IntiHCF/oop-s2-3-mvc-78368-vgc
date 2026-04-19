@@ -1,0 +1,34 @@
+﻿@model AttendanceRecord
+
+<h2>Mark Attendance</h2>
+
+<form asp-action="Create" method="post">
+
+    <div class="form-group">
+        <label>Student Enrolment</label>
+        <select asp-for="CourseEnrolmentId"
+                class="form-control"
+                asp-items="@(new SelectList(ViewBag.Enrolments, "Id", "StudentProfile.Name"))">
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Date</label>
+        <input asp-for="Date" type="date" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Week Number</label>
+        <input asp-for="WeekNumber" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Present</label>
+        <select asp-for="Present" class="form-control">
+            <option value="true">Present</option>
+            <option value="false">Absent</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-success">Save</button>
+</form>

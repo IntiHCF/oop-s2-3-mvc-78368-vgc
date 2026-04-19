@@ -1,0 +1,18 @@
+﻿@model Branch
+
+<h2>Create Branch</h2>
+
+<form asp-action="Create" method="post">
+
+    <div class="form-group">
+        <label>Name</label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Address</label>
+        <input asp-for="Address" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-success">Save</button>
+</form>

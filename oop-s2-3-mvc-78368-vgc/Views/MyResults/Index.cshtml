@@ -1,0 +1,70 @@
+﻿@{
+    var examResults = ViewBag.ExamResults as List<ExamResult>;
+    var assignmentResults = ViewBag.AssignmentResults as List<AssignmentResult>;
+}
+
+<h2>My Results</h2>
+
+<hr />
+
+<h3>Exam Results</h3>
+
+@if (examResults != null && examResults.Any())
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Exam</th>
+                <th>Score</th>
+                <th>Grade</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in examResults)
+            {
+                <tr>
+                    <td>@item.Exam?.Title</td>
+                    <td>@item.Score</td>
+                    <td>@item.Grade</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No exam results available.</p>
+}
+
+<hr />
+
+<h3>Assignment Results</h3>
+
+@if (assignmentResults != null && assignmentResults.Any())
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Assignment</th>
+                <th>Score</th>
+                <th>Feedback</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in assignmentResults)
+            {
+                <tr>
+                    <td>@item.Assignment?.Title</td>
+                    <td>@item.Score</td>
+                    <td>@item.Feedback</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No assignment results available.</p>
+}

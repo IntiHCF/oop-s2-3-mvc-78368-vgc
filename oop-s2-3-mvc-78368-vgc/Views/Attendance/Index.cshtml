@@ -1,0 +1,38 @@
+﻿@model IEnumerable<AttendanceRecord>
+
+<h2>Attendance Records</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Mark Attendance</a>
+</p>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Student</th>
+            <th>Course</th>
+            <th>Date</th>
+            <th>Week</th>
+            <th>Present</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.CourseEnrolment?.StudentProfile?.Name</td>
+                <td>@item.CourseEnrolment?.Course?.Name</td>
+                <td>@item.Date.ToShortDateString()</td>
+                <td>@item.WeekNumber</td>
+                <td>
+                    @(item.Present ? "Yes" : "No")
+                </td>
+                <td>
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

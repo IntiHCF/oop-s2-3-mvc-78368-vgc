@@ -1,0 +1,36 @@
+﻿@model Exam
+
+<h2>Create Exam</h2>
+
+<form asp-action="Create" method="post">
+
+    <div class="form-group">
+        <label>Course</label>
+        <select asp-for="CourseId"
+                class="form-control"
+                asp-items="@(new SelectList(ViewBag.Courses, "Id", "Name"))">
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Title</label>
+        <input asp-for="Title" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Date</label>
+        <input asp-for="Date" type="date" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Max Score</label>
+        <input asp-for="MaxScore" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Results Released</label>
+        <input asp-for="ResultsReleased" type="checkbox" />
+    </div>
+
+    <button type="submit" class="btn btn-success">Save</button>
+</form>

@@ -1,0 +1,18 @@
+﻿@model CourseEnrolment
+
+<h2>Create Enrolment</h2>
+
+<form asp-action="Create" method="post">
+
+    <select asp-for="StudentProfileId"
+            asp-items="@(new SelectList(ViewBag.Students, "Id", "Name"))"
+            class="form-control"></select>
+
+    <select asp-for="CourseId"
+            asp-items="@(new SelectList(ViewBag.Courses, "Id", "Name"))"
+            class="form-control"></select>
+
+    <input asp-for="Status" class="form-control" placeholder="Status" />
+
+    <button type="submit" class="btn btn-success">Save</button>
+</form>

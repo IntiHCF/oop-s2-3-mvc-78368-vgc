@@ -1,0 +1,30 @@
+﻿@model IEnumerable<AssignmentResult>
+
+<h2>Assignment Results</h2>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Add Result</a>
+</p>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Student</th>
+            <th>Assignment</th>
+            <th>Score</th>
+            <th>Feedback</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.StudentProfile?.Name</td>
+                <td>@item.Assignment?.Title</td>
+                <td>@item.Score</td>
+                <td>@item.Feedback</td>
+            </tr>
+        }
+    </tbody>
+</table>
